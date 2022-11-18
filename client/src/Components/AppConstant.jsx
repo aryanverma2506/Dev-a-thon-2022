@@ -444,27 +444,27 @@ export const loginInputs = [
 
 export const signupInputs = [
   {
-    text: "Hospital Name",
-    value: "hospitalName",
-    name: "signup-hospital-name",
+    text: "Name",  
+    value: "Name",
+    name: "signup-name",
     type: "text",
   },
-  {
-    text: "Hospital Address",
-    value: "hospitalAddress",
-    textarea: true,
-    name: "signup-hospital-address",
-  },
+  // {
+  //   text: "Hospital Address",
+  //   value: "hospitalAddress",
+  //   textarea: true,
+  //   name: "signup-hospital-address",
+  // },
   {
     text: "Email",
     value: "email",
-    name: "signup-hospital-email",
+    name: "signup-email",
     type: "email",
   },
   {
     text: "Password",
     value: "password",
-    name: "signup-hospital-password",
+    name: "signup-password",
     type: "password",
   },
   {

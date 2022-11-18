@@ -311,6 +311,13 @@ app.post('/softwareDeveloperStudents', async (req, res) => {
     return res.status(200).send(data)
 })
 
+app.get('/login', async (req, res) => {
+    if (req.cookies == undefined || req.cookies == null || req.cookies[COOKIE_NAME] == null) {
+        return res.render('login')
+    }
+})
+
+
 app.get('*', (req, res) => {
     res.status(404).send('Sorry, we are currently not serving the page you requested')
 })

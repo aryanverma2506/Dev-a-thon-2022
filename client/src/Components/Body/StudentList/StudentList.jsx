@@ -7,7 +7,7 @@ import BannerProps from "../Banner/BannerProps";
 import Iconbox from "../../Reuseable/Icon/Iconbox";
 import AppButton from "../../Reuseable/Button/AppButton";
 import { ContextApp } from "../../../ContextAPI";
-import { contactInputs, contactBoxes } from "../../AppConstant";
+import { contactInputs, studentBoxes } from "../../AppConstant";
 import { addNotification } from "../../AppFunctions";
 import styles from "./StudentList.module.css";
 
@@ -58,19 +58,8 @@ function Contact() {
     );
   });
 
-  const contactBoxesRow = contactBoxes?.map((box) => {
-    return (
-      <Card
-        className={styles}
-        copy={true}
-        card={box}
-        iconLink={
-          <a href={box.link} target={!box.notBlank && "__blank"}>
-            <i className={`fal fa-chevron-right ${styles["arrow-icon"]}`}></i>
-          </a>
-        }
-      />
-    );
+  const studentBoxesRow = studentBoxes?.map((box) => {
+    return <Card className={styles} copy={true} card={box} />;
   });
 
   return (
@@ -84,7 +73,7 @@ function Contact() {
         <div className={`${styles["contact-title"]}`} data-aos="flip-left">
           <h2>Student List</h2>
         </div>
-        {/* <div className={`${styles["contact-boxes"]}`}>{contactBoxesRow}</div> */}
+        <div className={`${styles["contact-boxes"]}`}>{studentBoxesRow}</div>
         {/* <div className={`${styles["contact-form"]}`} data-aos="zoom-out">
           <div className={`${styles["left-contact"]}`}>
             <Iconbox className={styles} icon="fad fa-envelope" />

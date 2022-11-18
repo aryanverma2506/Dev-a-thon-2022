@@ -399,6 +399,53 @@ export const contactInputs = [
   },
 ];
 
+export const loginInputs = [
+  {
+    text: "Email",
+    value: "email",
+    name: "login-email",
+    type: "email",
+  },
+  {
+    text: "password",
+    value: "password",
+    name: "login-password",
+  },
+];
+
+export const signupInputs = [
+  {
+    text: "Hospital Name",
+    value: "hospitalName",
+    name: "signup-hospital-name",
+    type: "text",
+  },
+  {
+    text: "Hospital Address",
+    value: "hospitalAddress",
+    textarea: true,
+    name: "signup-hospital-address",
+  },
+  {
+    text: "Email",
+    value: "email",
+    name: "signup-hospital-email",
+    type: "email",
+  },
+  {
+    text: "Password",
+    value: "password",
+    name: "signup-hospital-password",
+    type: "password",
+  },
+  {
+    text: "Confirm password",
+    value: "confirmPassword",
+    name: "signup-hospital-confirm-password",
+    type: "password",
+  },
+];
+
 export const gridservices = [
   {
     img: "https://i.imgur.com/cvOIep6.jpg",

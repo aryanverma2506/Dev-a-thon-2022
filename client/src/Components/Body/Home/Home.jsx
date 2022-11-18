@@ -4,10 +4,11 @@ import Slide from "../Banner/Slide";
 import TypeOnLoad from "../../Reuseable/TypeOnLoad/TypeOnLoad";
 import CarouselCont from "../../Reuseable/Carousel/CarouselCont";
 import Banner from "../Banner/Banner";
-import AboutSection from "../AboutSection/AboutSection";
+// import AboutSection from "../AboutSection/AboutSection";
 import { profile } from "../../AppConstant";
 import styles from "./Home.module.css";
-import FeaturesSection from "../FeaturesSection/FeaturesSection";
+// import FeaturesSection from "../FeaturesSection/FeaturesSection";
+import Services from "../Services/Services";
 
 function Home() {
   const [currentSlideShown, setCurrentSlideShown] = useState(0);
@@ -59,8 +60,9 @@ function Home() {
           backgroundAttachment: "fixed",
         }}
       />
-      <AboutSection />
-      <FeaturesSection />
+      <Services />
+      {/* <AboutSection />
+      <FeaturesSection /> */}
     </div>
   );
 }

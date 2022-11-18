@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { HashLink } from "react-router-hash-link";
 
 import Logo from "../Reuseable/Logo/Logo";
 import MappedArray from "../Body/MappedArray/MappedArray";
@@ -34,7 +35,12 @@ function Navbar(props) {
       className={`${styles["navbar"]} ${scrolled ? styles["navscrolled"] : ""}`}
     >
       <Logo text1="TurtleX" text2="Digital" />
-      <div className={`${styles["links"]}`}>{linksrow}</div>
+      <div className={`${styles["links"]}`}>
+        {linksrow}
+        <HashLink smooth to="/login#top">
+          <AppButton text="Login" icon="fad fa-sign-in" />
+        </HashLink>
+      </div>
       <div
         className={`${styles["mobbtn"]} ${navmenu ? styles["open"] : ""}`}
         onClick={() => setNavmenu(!navmenu)}
@@ -59,8 +65,10 @@ function Navbar(props) {
               />
             );
           })}
-          <AppButton text="Learn More" icon="fal fa-arrow-right" />
         </div>
+        <HashLink smooth to="/login#top">
+          <AppButton text="Login" icon="fad fa-sign-in" />
+        </HashLink>
       </div>
     </div>
   );

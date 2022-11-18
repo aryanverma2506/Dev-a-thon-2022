@@ -50,10 +50,15 @@ function Body() {
           {/* <Route path="/works" element={<Works />} /> */}
           {/* {worksRoutes} */}
           <Route path="/contact" element={<Contact />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/studentList" element={<StudentList />} />
+          <Route path="/profile/:id" element={<Profile />} />
+          <Route path="/studentList/webDev" element={<StudentList profile={"webDev"}/>} />
+          <Route path="/studentList/appDev" element={<StudentList profile={"appDev"} />} />
+          <Route path="/studentList/software" element={<StudentList profile={"software"} />} />
+          <Route path="/studentList/cyber" element={<StudentList profile={"cyber"} />} />
+          <Route path="/studentList/dataScience" element={<StudentList profile={"dataScience"} />} />
+          <Route path="/studentList/machineLearning" element={<StudentList profile={"machineLearning"} />} />
 
-          <Route path="*" element={<YouAreLost />} />
+          {/* <Route path="*" element={<YouAreLost />} /> */}
         </Routes>
       </AnimatePresence>
 

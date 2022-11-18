@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 
 import Card from "../../Reuseable/Card/Card";
@@ -7,11 +7,12 @@ import BannerProps from "../Banner/BannerProps";
 import Iconbox from "../../Reuseable/Icon/Iconbox";
 import AppButton from "../../Reuseable/Button/AppButton";
 import { ContextApp } from "../../../ContextAPI";
-import { contactInputs, studentBoxes } from "../../AppConstant";
+import { contactInputs } from "../../AppConstant";
 import { addNotification } from "../../AppFunctions";
 import styles from "./StudentList.module.css";
+import axios from "axios";
 
-function Contact() {
+function StudentList(props) {
   const { notifisystem } = useContext(ContextApp);
   const [formValues, setFormValues] = useState({
     name: "",
@@ -19,6 +20,7 @@ function Contact() {
     msg: "",
   });
 
+  const [studentBoxes, setstudentBoxes] = useState([])
   function sendEmail(event) {
     console.log("asd");
     event.preventDefault();
@@ -58,8 +60,74 @@ function Contact() {
     );
   });
 
+
+  const getData = async () => {
+    const profile = props.profile
+    if(profile == 'webDev') {
+      const data = await axios.post('/webDevStudents', {
+        "inDefaultMode": true,
+        "backend": 70,
+        "frontend": 20,
+        "database": 10
+      })
+      setstudentBoxes(data.data)
+    } 
+    else if(profile == 'appDev') {
+      const data = await axios.post('/appDevStudents', {
+        "inDefaultMode": true,
+        "backend": 70,
+        "frontend": 20,
+        "database": 10
+      })
+      setstudentBoxes(data.data)
+    }
+    else if(profile == 'software') {
+      const data = await axios.post('/softwareDeveloperStudents', {
+        "inDefaultMode": true,
+        "backend": 70,
+        "frontend": 20,
+        "database": 10
+      })
+      setstudentBoxes(data.data)
+    }
+    else if(profile == 'cyber') {
+      const data = await axios.post('/cyberSecurityStudents', {
+        "inDefaultMode": true,
+        "backend": 70,
+        "frontend": 20,
+        "database": 10
+      })
+      setstudentBoxes(data.data)
+    }
+    else if(profile == 'dataScience') {
+      const data = await axios.post('/dataScienceStudents', {
+        "inDefaultMode": true,
+        "backend": 70,
+        "frontend": 20,
+        "database": 10
+      })
+      console.log(data.data);
+      setstudentBoxes(data.data)
+    }
+    else if(profile == 'machineLearning') {
+      const data = await axios.post('/machineLearningStudents', {
+        "inDefaultMode": true,
+        "backend": 70,
+        "frontend": 20,
+        "database": 10
+      })
+      setstudentBoxes(data.data)
+    }
+  }
+
+  useEffect(() => {
+    getData()
+    console.log(studentBoxes);
+  }, [])
+  
+
   const studentBoxesRow = studentBoxes?.map((box) => {
-    return <Card className={styles} copy={true} card={box} />;
+    return <Card className={styles} card={box}/>;
   });
 
   return (
@@ -89,4 +157,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default StudentList;

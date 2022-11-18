@@ -482,7 +482,7 @@ export const gridservices = [
     texts: ["Backend", "Frontend", "Database"],
     text: "Breath taking Web designs for an amazing user experience.",
     icon: "fad fa-browser",
-    link: "/studentList",
+    link: "/studentList/webDev",
   },
   {
     reverse: true,
@@ -491,7 +491,7 @@ export const gridservices = [
     texts: ["Android", "IOS", "Cross Platform"],
     text: "Mobile Apps allow users to access your web app on their phone!",
     icon: "fad fa-mobile",
-    link: "/studentList",
+    link: "/studentList/appDev",
   },
   {
     img: "https://i.imgur.com/6vC3i3o.png",
@@ -499,7 +499,7 @@ export const gridservices = [
     texts: ["UI", "UX", "Responsive"],
     text: "Powerful Web Applications enhances user interference and productivity!",
     icon: "fad fa-browser",
-    link: "/studentList",
+    link: "/studentList/dataScience",
   },
   {
     reverse: true,
@@ -507,7 +507,7 @@ export const gridservices = [
     title: "Software Developers",
     texts: ["UI", "UX", "Responsive"],
     text: "A Hybrid is a mix of a Web Application and a Website!",
-    link: "/studentList",
+    link: "/studentList/software",
     icon: "fad fa-columns",
   },
   {
@@ -515,7 +515,7 @@ export const gridservices = [
     title: "Cyber Security",
     texts: ["UI", "UX", "Responsive"],
     text: "A Hybrid is a mix of a Web Application and a Website!",
-    link: "/studentList",
+    link: "/studentList/cyber",
     icon: "fad fa-columns",
   },
   {
@@ -524,7 +524,7 @@ export const gridservices = [
     title: "Machine Learning",
     texts: ["UI", "UX", "Responsive"],
     text: "A Hybrid is a mix of a Web Application and a Website!",
-    link: "/studentList",
+    link: "/studentList/machineLearning",
     icon: "fad fa-columns",
   },
 ];

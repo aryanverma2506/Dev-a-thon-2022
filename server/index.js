@@ -82,17 +82,21 @@ app.post('/webDevStudents', async (req, res) => {
     data.sort((a, b) => {
         if(a['webdevScore'] == b['webdevScore']) {
             if(b['cgpa'] = a['cgpa']) {
-                return b['problem_solving_and_aptitude'] - a['problem_solving_and_aptitude']
+                if(b['problem_solving_and_aptitude'] = a['problem_solving_and_aptitude']) {
+                    return b['version_control_systems'] - a['version_control_systems']
+                } else {
+                    return b['problem_solving_and_aptitude'] - a['problem_solving_and_aptitude']
+                }
             } else {
                 return b['cgpa'] - a['cgpa']
             }
         }
         return b['webdevScore'] - a['webdevScore']
     })
-    return res.send(data)
+    return res.status(200).send(data)
 })
 
-app.post('/appdevStudents', async (req, res) => {
+app.post('/appDevStudents', async (req, res) => {
     const inDefaultMode = req.body.inDefaultMode
 
     if (!fs.apps.length) {
@@ -132,7 +136,179 @@ app.post('/appdevStudents', async (req, res) => {
         }
         return b['appdevScore'] - a['appdevScore']
     })
-    return res.send(data)
+    return res.status(200).send(data)
+})
+
+app.post('/dataScienceStudents', async (req, res) => {
+    const inDefaultMode = req.body.inDefaultMode
+
+    if (!fs.apps.length) {
+        fs.initializeApp({
+            credential: fs.credential.cert(serviceAccount)
+        });
+    }
+    const db = fs.firestore();
+    const collection = await db.collection('applications').get()
+    let data = collection.docs.map(doc => doc.data())
+    let i = 0;
+    while(data[i] != undefined) {
+        let datascienceScore = 0
+        if(inDefaultMode) {
+            datascienceScore = (parseFloat(data[i]['python']) + parseFloat(data[i]['multivariate_calculus_linear_algebra']) + parseFloat(data[i]['probability_statistics'])) / 3.0
+        } else {
+            let pythonWeight = parseInt(parseFloat(req.body.python) / 10)
+            let multivariate_calculus_linear_algebraWeight = parseInt(parseFloat(req.body.multivariate_calculus_linear_algebra) / 10)
+            let probability_statisticsWeight = parseInt(parseFloat(req.body.probability_statistics) / 10)
+            const total = pythonWeight + multivariate_calculus_linear_algebraWeight + probability_statisticsWeight
+            datascienceScore = (pythonWeight * parseFloat(data[i]['python']) + multivariate_calculus_linear_algebraWeight * parseFloat(data[i]['multivariate_calculus_linear_algebra']) + probability_statisticsWeight * parseFloat(data[i]['probability_statistics'])) / total
+        }
+        data[i]['datascienceScore'] = datascienceScore
+        i++;
+    }
+    data.sort((a, b) => {
+        if(a['datascienceScore'] == b['datascienceScore']) {
+            if(b['cgpa'] = a['cgpa']) {
+                if(b['problem_solving_and_aptitude'] = a['problem_solving_and_aptitude']) {
+                    return b['version_control_systems'] - a['version_control_systems']
+                } else {
+                    return b['problem_solving_and_aptitude'] - a['problem_solving_and_aptitude']
+                }
+            } else {
+                return b['cgpa'] - a['cgpa']
+            }
+        }
+        return b['datascienceScore'] - a['datascienceScore']
+    })
+    return res.status(200).send(data)
+})
+
+app.post('/machineLearningStudents', async (req, res) => {
+    const inDefaultMode = req.body.inDefaultMode
+
+    if (!fs.apps.length) {
+        fs.initializeApp({
+            credential: fs.credential.cert(serviceAccount)
+        });
+    }
+    const db = fs.firestore();
+    const collection = await db.collection('applications').get()
+    let data = collection.docs.map(doc => doc.data())
+    let i = 0;
+    while(data[i] != undefined) {
+        let machinelearningScore = 0
+        if(inDefaultMode) {
+            machinelearningScore = (parseFloat(data[i]['python']) + parseFloat(data[i]['multivariate_calculus_linear_algebra']) + parseFloat(data[i]['probability_statistics']) + parseFloat(data[i]['ml_algorithms'])) / 4.0
+        } else {
+            let pythonWeight = parseInt(parseFloat(req.body.python) / 10)
+            let multivariate_calculus_linear_algebraWeight = parseInt(parseFloat(req.body.multivariate_calculus_linear_algebra) / 10)
+            let probability_statisticsWeight = parseInt(parseFloat(req.body.probability_statistics) / 10)
+            let ml_algorithmsWeight = parseInt(parseFloat(req.body.ml_algorithms) / 10)
+            const total = pythonWeight + multivariate_calculus_linear_algebraWeight + probability_statisticsWeight + ml_algorithmsWeight
+            machinelearningScore = (pythonWeight * parseFloat(data[i]['python']) + multivariate_calculus_linear_algebraWeight * parseFloat(data[i]['multivariate_calculus_linear_algebra']) + probability_statisticsWeight * parseFloat(data[i]['probability_statistics']) + ml_algorithmsWeight * parseFloat(data[i]['ml_algorithms'])) / total
+        }
+        data[i]['machinelearningScore'] = machinelearningScore
+        i++;
+    }
+    data.sort((a, b) => {
+        if(a['machinelearningScore'] == b['machinelearningScore']) {
+            if(b['cgpa'] = a['cgpa']) {
+                if(b['problem_solving_and_aptitude'] = a['problem_solving_and_aptitude']) {
+                    return b['version_control_systems'] - a['version_control_systems']
+                } else {
+                    return b['problem_solving_and_aptitude'] - a['problem_solving_and_aptitude']
+                }
+            } else {
+                return b['cgpa'] - a['cgpa']
+            }
+        }
+        return b['machinelearningScore'] - a['machinelearningScore']
+    })
+    return res.status(200).send(data)
+})
+
+app.post('/cyberSecurityStudents', async (req, res) => {
+    const inDefaultMode = req.body.inDefaultMode
+
+    if (!fs.apps.length) {
+        fs.initializeApp({
+            credential: fs.credential.cert(serviceAccount)
+        });
+    }
+    const db = fs.firestore();
+    const collection = await db.collection('applications').get()
+    let data = collection.docs.map(doc => doc.data())
+    let i = 0;
+    while(data[i] != undefined) {
+        let cybersecurityScore = 0
+        if(inDefaultMode) {
+            cybersecurityScore = (parseFloat(data[i]['operating_system']) + parseFloat(data[i]['communication_networks'])) / 2.0
+        } else {
+            let operating_systemWeight = parseInt(parseFloat(req.body.operating_system) / 10)
+            let communication_networksWeight = parseInt(parseFloat(req.body.communication_networks) / 10)
+            const total = operating_systemWeight + communication_networksWeight
+            cybersecurityScore = (operating_systemWeight * parseFloat(data[i]['operating_system']) + communication_networksWeight * parseFloat(data[i]['communication_networks'])) / total
+        }
+        data[i]['cybersecurityScore'] = cybersecurityScore
+        i++;
+    }
+    data.sort((a, b) => {
+        if(a['cybersecurityScore'] == b['cybersecurityScore']) {
+            if(b['cgpa'] = a['cgpa']) {
+                if(b['problem_solving_and_aptitude'] = a['problem_solving_and_aptitude']) {
+                    return b['version_control_systems'] - a['version_control_systems']
+                } else {
+                    return b['problem_solving_and_aptitude'] - a['problem_solving_and_aptitude']
+                }
+            } else {
+                return b['cgpa'] - a['cgpa']
+            }
+        }
+        return b['cybersecurityScore'] - a['cybersecurityScore']
+    })
+    return res.status(200).send(data)
+})
+
+app.post('/softwareDeveloperStudents', async (req, res) => {
+    const inDefaultMode = req.body.inDefaultMode
+    
+    if (!fs.apps.length) {
+        fs.initializeApp({
+            credential: fs.credential.cert(serviceAccount)
+        });
+    }
+    const db = fs.firestore();
+    const collection = await db.collection('applications').get()
+    let data = collection.docs.map(doc => doc.data())
+    let i = 0;
+    while(data[i] != undefined) {
+        let softwaredeveloperScore = 0
+        if(inDefaultMode) {
+            softwaredeveloperScore = (parseFloat(data[i]['data_structures']) + parseFloat(data[i]['algorithms']) + parseFloat(data[i]['problem_solving_and_aptitude'])) / 3.0
+        } else {
+            let data_structuresWeight = parseInt(parseFloat(req.body.data_structures) / 10)
+            let algorithmsWeight = parseInt(parseFloat(req.body.algorithms) / 10)
+            let problem_solving_and_aptitudeWeight = parseInt(parseFloat(req.body.problem_solving_and_aptitude) / 10)
+            const total = data_structuresWeight + algorithmsWeight + problem_solving_and_aptitudeWeight
+            softwaredeveloperScore = (data_structuresWeight * parseFloat(data[i]['data_structures']) + algorithmsWeight * parseFloat(data[i]['algorithms']) + problem_solving_and_aptitudeWeight * parseFloat(data[i]['problem_solving_and_aptitude'])) / total
+        }
+        data[i]['softwaredeveloperScore'] = softwaredeveloperScore
+        i++;
+    }
+    data.sort((a, b) => {
+        if(a['softwaredeveloperScore'] == b['softwaredeveloperScore']) {
+            if(b['cgpa'] = a['cgpa']) {
+                if(b['operating_system'] = a['operating_system']) {
+                    return b['version_control_systems'] - a['version_control_systems']
+                } else {
+                    return b['operating_system'] - a['operating_system']
+                }
+            } else {
+                return b['cgpa'] - a['cgpa']
+            }
+        }
+        return b['softwaredeveloperScore'] - a['softwaredeveloperScore']
+    })
+    return res.status(200).send(data)
 })
 
 app.get('/login', async (req, res) => {

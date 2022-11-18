@@ -1,3 +1,11 @@
+export const temp = {
+  colors: ["#000", "#25adff", "#add8e6"],
+  donut: {
+    series: [513, 700, 362],
+    labels: ["UX", "UI", "Design"],
+  },
+};
+
 export const works = [
   {
     title: "ShopiumX",
@@ -172,27 +180,6 @@ export const links = [
     text: "About",
   },
   {
-    link: "/services",
-    text: "Services",
-    dropdown: [
-      {
-        link: "/services#websites",
-        text: "Websites",
-        icon: "fad fa-browser",
-      },
-      {
-        link: "/services#webapps",
-        text: "Web Apps",
-        icon: "fad fa-browser",
-      },
-      {
-        link: "/services#mobileapps",
-        text: "Mobile Apps",
-        icon: "fad fa-mobile",
-      },
-    ],
-  },
-  {
     link: "/works",
     text: "Works",
     keyword: true,
@@ -216,6 +203,27 @@ export const links = [
       {
         link: "all",
         text: "All",
+      },
+    ],
+  },
+  {
+    link: "/services",
+    text: "Services",
+    dropdown: [
+      {
+        link: "/services#websites",
+        text: "Websites",
+        icon: "fad fa-browser",
+      },
+      {
+        link: "/services#webapps",
+        text: "Web Apps",
+        icon: "fad fa-browser",
+      },
+      {
+        link: "/services#mobileapps",
+        text: "Mobile Apps",
+        icon: "fad fa-mobile",
       },
     ],
   },

@@ -7,7 +7,7 @@ import Icon from "../Reuseable/Icon/Icon";
 import Navbar from "../Navbar/Navbar";
 import Home from "./Home/Home";
 import AboutMe from "./AboutMe/AboutMe";
-import Services from "./Services/Services";
+// import Services from "./Services/Services";
 import Works from "./Works/Works";
 import Contact from "./Contact/Contact";
 import YouAreLost from "./404/YouAreLost";
@@ -45,7 +45,7 @@ function Body() {
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/aboutme" element={<AboutMe />} />
-          <Route path="/services" element={<Services />} />
+          {/* <Route path="/services" element={<Services />} /> */}
           <Route path="/works" element={<Works />} />
           {worksRoutes}
           <Route path="/contact" element={<Contact />} />

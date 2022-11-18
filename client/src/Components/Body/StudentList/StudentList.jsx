@@ -1,15 +1,15 @@
 import React, { useContext, useState } from "react";
 import emailjs from "emailjs-com";
 
-// import Card from "../../Reuseable/Card/Card";
+import Card from "../../Reuseable/Card/Card";
 import ObjectInput from "../../Reuseable/Input/ObjectInput";
 import BannerProps from "../Banner/BannerProps";
 import Iconbox from "../../Reuseable/Icon/Iconbox";
 import AppButton from "../../Reuseable/Button/AppButton";
 import { ContextApp } from "../../../ContextAPI";
-import { contactInputs } from "../../AppConstant";
+import { contactInputs, contactBoxes } from "../../AppConstant";
 import { addNotification } from "../../AppFunctions";
-import styles from "./Contact.module.css";
+import styles from "./StudentList.module.css";
 
 function Contact() {
   const { notifisystem } = useContext(ContextApp);
@@ -58,37 +58,34 @@ function Contact() {
     );
   });
 
-  // const contactBoxesRow = contactBoxes?.map((box) => {
-  //   return (
-  //     <Card
-  //       className={styles}
-  //       copy={true}
-  //       card={box}
-  //       iconLink={
-  //         <a href={box.link} target={!box.notBlank && "__blank"}>
-  //           <i className={`fal fa-chevron-right ${styles["arrow-icon"]}`}></i>
-  //         </a>
-  //       }
-  //     />
-  //   );
-  // });
+  const contactBoxesRow = contactBoxes?.map((box) => {
+    return (
+      <Card
+        className={styles}
+        copy={true}
+        card={box}
+        iconLink={
+          <a href={box.link} target={!box.notBlank && "__blank"}>
+            <i className={`fal fa-chevron-right ${styles["arrow-icon"]}`}></i>
+          </a>
+        }
+      />
+    );
+  });
 
   return (
     <div className={`${styles["contact"]}`}>
       <BannerProps
         img="https://i.imgur.com/fzc9vDw.png"
-        title="Contact Us"
-        text="Contact Us if you are getting any problem"
+        title="Student List"
+        text="Here are the top class Students you can ever get"
       />
       <div className={`${styles["contact-info"]}`}>
         <div className={`${styles["contact-title"]}`} data-aos="flip-left">
-          <h2>Contact Us</h2>
-          <small className={`${styles["graytext"]}`}>
-            Don't hesitate to reach out to me!
-          </small>
+          <h2>Student List</h2>
         </div>
         {/* <div className={`${styles["contact-boxes"]}`}>{contactBoxesRow}</div> */}
-        <div className={`${styles["contact-form"]}`} data-aos="zoom-out">
+        {/* <div className={`${styles["contact-form"]}`} data-aos="zoom-out">
           <div className={`${styles["left-contact"]}`}>
             <Iconbox className={styles} icon="fad fa-envelope" />
             <h2>Send Me a Message</h2>
@@ -97,7 +94,7 @@ function Contact() {
             {formInputs}
             <AppButton text={"Submit"} icon="fad fa-envelope" />
           </form>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -32,10 +32,7 @@ function Home() {
       <>
         <div className={`${styles["title"]}`}>
           <h2>
-            <TypeOnLoad text={"Aryan Verma"} />
-            <small className={`${styles["graytext"]}`}>
-              <TypeOnLoad text={"Web Developer"} />
-            </small>
+            <TypeOnLoad text={"Welcome"} />
           </h2>
           <div className={`${styles["hr"]}`}></div>
         </div>
@@ -51,7 +48,7 @@ function Home() {
   return (
     <div className={`${styles["home"]}`}>
       <Banner
-        name="Aryan Verma"
+        name="Welcome"
         hr={true}
         html={bannercont.html}
         height="100vh"

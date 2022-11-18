@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const app = express()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 5000
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const fs = require('firebase-admin');
@@ -134,6 +134,13 @@ app.post('/appdevStudents', async (req, res) => {
     })
     return res.send(data)
 })
+
+app.get('/login', async (req, res) => {
+    if (req.cookies == undefined || req.cookies == null || req.cookies[COOKIE_NAME] == null) {
+        return res.render('login')
+    }
+})
+
 
 app.get('*', (req, res) => {
     res.status(404).send('Sorry, we are currently not serving the page you requested')

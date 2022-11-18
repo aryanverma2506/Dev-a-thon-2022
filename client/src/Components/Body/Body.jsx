@@ -7,24 +7,25 @@ import Icon from "../Reuseable/Icon/Icon";
 import Navbar from "../Navbar/Navbar";
 import Home from "./Home/Home";
 import AboutMe from "./AboutMe/AboutMe";
-import Services from "./Services/Services";
-import Works from "./Works/Works";
+// import Services from "./Services/Services";
+// import Works from "./Works/Works";
 import Contact from "./Contact/Contact";
 import YouAreLost from "./404/YouAreLost";
 import Footer from "../Footer/Footer";
 import LogIn from "./LogIn/LogIn";
 import SignUp from "./SignUp/SignUp";
-import ProjectPage from "../Reuseable/ProjectPage/ProjectPage";
+// import ProjectPage from "../Reuseable/ProjectPage/ProjectPage";
 import Profile from "./Profile/Profile";
-import { links, style, works } from "../AppConstant";
+import StudentList from "./StudentList/StudentList";
+import { links, style } from "../AppConstant";
 import { ContextApp } from "../../ContextAPI";
 import styles from "./Body.module.css";
 
 function Body() {
   const { scrolled, notifisystem } = useContext(ContextApp);
-  const worksRoutes = works?.map((work) => {
-    return <Route path={work.link} element={<ProjectPage project={work} />} />;
-  });
+  // const worksRoutes = works?.map((work) => {
+  //   return <Route path={work.link} element={<ProjectPage project={work} />} />;
+  // });
 
   return (
     <div className={`${styles["body"]}`}>
@@ -45,11 +46,12 @@ function Body() {
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/aboutme" element={<AboutMe />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/works" element={<Works />} />
-          {worksRoutes}
+          {/* <Route path="/services" element={<Services />} /> */}
+          {/* <Route path="/works" element={<Works />} /> */}
+          {/* {worksRoutes} */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/studentList" element={<StudentList />} />
 
           <Route path="*" element={<YouAreLost />} />
         </Routes>

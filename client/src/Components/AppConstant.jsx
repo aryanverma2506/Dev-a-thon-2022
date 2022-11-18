@@ -1,3 +1,11 @@
+export const temp = {
+  colors: ["#000", "#25adff", "#add8e6"],
+  donut: {
+    series: [513, 700, 362],
+    labels: ["UX", "UI", "Design"],
+  },
+};
+
 export const works = [
   {
     title: "ShopiumX",
@@ -172,27 +180,6 @@ export const links = [
     text: "About",
   },
   {
-    link: "/services",
-    text: "Services",
-    dropdown: [
-      {
-        link: "/services#websites",
-        text: "Websites",
-        icon: "fad fa-browser",
-      },
-      {
-        link: "/services#webapps",
-        text: "Web Apps",
-        icon: "fad fa-browser",
-      },
-      {
-        link: "/services#mobileapps",
-        text: "Mobile Apps",
-        icon: "fad fa-mobile",
-      },
-    ],
-  },
-  {
     link: "/works",
     text: "Works",
     keyword: true,
@@ -216,6 +203,27 @@ export const links = [
       {
         link: "all",
         text: "All",
+      },
+    ],
+  },
+  {
+    link: "/services",
+    text: "Services",
+    dropdown: [
+      {
+        link: "/services#websites",
+        text: "Websites",
+        icon: "fad fa-browser",
+      },
+      {
+        link: "/services#webapps",
+        text: "Web Apps",
+        icon: "fad fa-browser",
+      },
+      {
+        link: "/services#mobileapps",
+        text: "Mobile Apps",
+        icon: "fad fa-mobile",
       },
     ],
   },
@@ -343,6 +351,27 @@ export const services = [
   },
 ];
 
+export const studentBoxes = [
+  {
+    title: "Aryan Verma",
+    text: `Score: ${5}/10`,
+    link: "/profile",
+    icon: "fas fa-id-card",
+  },
+  {
+    title: "Saket Ranjan",
+    text: `Score: ${5}/10`,
+    link: "/profile",
+    icon: "fas fa-id-card",
+  },
+  {
+    title: "Varun Bansal",
+    text: `Score: ${5}/10`,
+    link: "/profile",
+    icon: "fas fa-id-card",
+  },
+];
+
 export const contactBoxes = [
   {
     title: "Call Me",
@@ -453,7 +482,7 @@ export const gridservices = [
     texts: ["Backend", "Frontend", "Database"],
     text: "Breath taking Web designs for an amazing user experience.",
     icon: "fad fa-browser",
-    link: "/works/websites",
+    link: "/studentList",
   },
   {
     reverse: true,
@@ -462,7 +491,7 @@ export const gridservices = [
     texts: ["Android", "IOS", "Cross Platform"],
     text: "Mobile Apps allow users to access your web app on their phone!",
     icon: "fad fa-mobile",
-    link: "/works/mobile",
+    link: "/studentList",
   },
   {
     img: "https://i.imgur.com/6vC3i3o.png",
@@ -470,7 +499,7 @@ export const gridservices = [
     texts: ["UI", "UX", "Responsive"],
     text: "Powerful Web Applications enhances user interference and productivity!",
     icon: "fad fa-browser",
-    link: "/works/apps",
+    link: "/studentList",
   },
   {
     reverse: true,
@@ -478,7 +507,7 @@ export const gridservices = [
     title: "Software Developers",
     texts: ["UI", "UX", "Responsive"],
     text: "A Hybrid is a mix of a Web Application and a Website!",
-    link: "/works/hybrid",
+    link: "/studentList",
     icon: "fad fa-columns",
   },
   {
@@ -486,7 +515,7 @@ export const gridservices = [
     title: "Cyber Security",
     texts: ["UI", "UX", "Responsive"],
     text: "A Hybrid is a mix of a Web Application and a Website!",
-    link: "/works/hybrid",
+    link: "/studentList",
     icon: "fad fa-columns",
   },
   {
@@ -495,7 +524,7 @@ export const gridservices = [
     title: "Machine Learning",
     texts: ["UI", "UX", "Responsive"],
     text: "A Hybrid is a mix of a Web Application and a Website!",
-    link: "/works/hybrid",
+    link: "/studentList",
     icon: "fad fa-columns",
   },
 ];

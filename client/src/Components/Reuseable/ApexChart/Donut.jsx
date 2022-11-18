@@ -16,7 +16,7 @@ function Donut(props) {
   };
 
   return (
-    <div className={`${styles["donut"]}`} data-aos="fade-up">
+    <div className={`${styles["donut"]}`}>
       <div className={`${styles["title-chart"]}`}>
         <h3>{title}</h3>
       </div>

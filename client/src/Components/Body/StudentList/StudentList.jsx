@@ -21,7 +21,7 @@ function StudentList(props) {
 
   const getData = async (inDefaultMode) => {
     const profile = props.profile
-    if(profile == 'webDev') {
+    if (profile == 'webDev') {
       setFormInputFields([
         {
           text: "Backend Web Technologies",
@@ -51,8 +51,8 @@ function StudentList(props) {
         "database": formInput[2]
       })
       setstudentBoxes(data.data)
-    } 
-    else if(profile == 'appDev') {
+    }
+    else if (profile == 'appDev') {
       setFormInputFields([
         {
           text: "Android",
@@ -81,7 +81,7 @@ function StudentList(props) {
       })
       setstudentBoxes(data.data)
     }
-    else if(profile == 'software') {
+    else if (profile == 'software') {
       setFormInputFields([
         {
           text: "Data Structures",
@@ -110,7 +110,7 @@ function StudentList(props) {
       })
       setstudentBoxes(data.data)
     }
-    else if(profile == 'cyber') {
+    else if (profile == 'cyber') {
       setFormInputFields([
         {
           text: "Operating System",
@@ -132,7 +132,7 @@ function StudentList(props) {
       })
       setstudentBoxes(data.data)
     }
-    else if(profile == 'dataScience') {
+    else if (profile == 'dataScience') {
       setFormInputFields([
         {
           text: "Python",
@@ -161,7 +161,7 @@ function StudentList(props) {
       })
       setstudentBoxes(data.data)
     }
-    else if(profile == 'machineLearning') {
+    else if (profile == 'machineLearning') {
       setFormInputFields([
         {
           text: "Python",
@@ -210,7 +210,7 @@ function StudentList(props) {
   }, [])
 
   const handleCheckBoxChange = (e) => {
-    if(defaultState === false) {
+    if (defaultState === false) {
       setDefaultState(true)
       e.target.checked = true
     } else {
@@ -218,13 +218,13 @@ function StudentList(props) {
       e.target.checked = false
     }
   }
-  
+
 
   const studentBoxesRow = studentBoxes?.map((box) => {
-    return <Card className={styles} card={box}/>;
+    return <Card className={styles} card={box} />;
   });
 
-  const getInputFields = formInputFields?.map((input,idx) => {
+  const getInputFields = formInputFields?.map((input, idx) => {
     return (
       <ObjectInput
         name={input.name}
@@ -251,12 +251,12 @@ function StudentList(props) {
           <h2>Student List</h2>
         </div>
         <div className={`${styles["contact-boxes"]}`} >
-        <FormControlLabel control={<Checkbox defaultChecked onChange={handleCheckBoxChange}/>} label="Default Mode" />
+          <FormControlLabel control={<Checkbox defaultChecked onChange={handleCheckBoxChange} />} label="Default Mode" />
           {getInputFields}
           {/* <input type={"Number"} max={100} placeholder={"Enter backend Weightage"} value={backendInput} onChange={(e) => setBackendInput(e.target.value)}/>
           <input type={"Number"} max={100} placeholder={"Enter frontend Weightage"} value={frontendInput} onChange={(e) => setFrontendInput(e.target.value)}/>
           <input type={"Number"} max={100} placeholder={"Enter database Weightage"} value={databaseInput} onChange={(e) => setDataBaseInput(e.target.value)}/> */}
-          <AppButton text="Get Developers" clickEvent={getDevelopers}/>
+          <AppButton text="Get Developers" icon="fad fa-terminal" clickEvent={getDevelopers} />
         </div>
         <div className={`${styles["contact-boxes"]}`}>{studentBoxesRow}</div>
       </div>

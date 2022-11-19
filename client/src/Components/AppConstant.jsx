@@ -34,13 +34,6 @@ export const profile = [
     link: "/studentList/appDev",
   },
   {
-    title: "Data Science",
-    img: require("../img/data_science.png"),
-    text: "Want to get valuable insights about your data? Hire our Data Science experts.",
-    icon: "fad fa-analytics",
-    link: "/studentList/dataScience",
-  },
-  {
     title: "Software Developers",
     img: require("../img/software_devloper.png"),
     text: "Welcome to new era of softwares. Build your product with our rich collection of world class software developers",
@@ -53,6 +46,13 @@ export const profile = [
     text: "Data is the new oil. Protect your data with our Cyber Security experts.",
     icon: "fas fa-shield-alt",
     link: "/studentList/cyber",
+  },
+  {
+    title: "Data Science",
+    img: require("../img/data_science.png"),
+    text: "Want to get valuable insights about your data? Hire our Data Science experts.",
+    icon: "fad fa-analytics",
+    link: "/studentList/dataScience",
   },
   {
     title: "Machine Learning",
@@ -157,15 +157,6 @@ export const gridservices = [
     link: "/studentList/appDev",
   },
   {
-    img: require("../img/data_science.png"),
-    title: "Data Science",
-    texts: ["Process data", "Visualize", "Analyse"],
-    text: "Process and analyse the valuable insights of your data.",
-    icon: "fad fa-analytics",
-    link: "/studentList/dataScience",
-  },
-  {
-    reverse: true,
     img: require("../img/software_devloper.png"),
     title: "Software Developers",
     texts: ["Build", "Test", "Launch"],
@@ -174,12 +165,21 @@ export const gridservices = [
     link: "/studentList/software",
   },
   {
+    reverse: true,
     img: require("../img/cyber_security.png"),
     title: "Cyber Security",
     texts: ["Encrypt", "Decrypt", "Secure"],
     text: "Secure your product.",
     icon: "fas fa-shield-alt",
     link: "/studentList/cyber",
+  },
+  {
+    img: require("../img/data_science.png"),
+    title: "Data Science",
+    texts: ["Process data", "Visualize", "Analyse"],
+    text: "Process and analyse the valuable insights of your data.",
+    icon: "fad fa-analytics",
+    link: "/studentList/dataScience",
   },
   {
     reverse: true,

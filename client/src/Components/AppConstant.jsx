@@ -444,7 +444,7 @@ export const loginInputs = [
 
 export const signupInputs = [
   {
-    text: "Name",  
+    text: "Name",
     value: "Name",
     name: "signup-name",
     type: "text",
@@ -477,7 +477,7 @@ export const signupInputs = [
 
 export const gridservices = [
   {
-    img: "https://i.imgur.com/cvOIep6.jpg",
+    img: require("../img/web_devloper.png"),
     title: "Web Developers",
     texts: ["Backend", "Frontend", "Database"],
     text: "Breath taking Web designs for an amazing user experience.",
@@ -486,7 +486,7 @@ export const gridservices = [
   },
   {
     reverse: true,
-    img: "https://i.imgur.com/XFJIHqG.png",
+    img: require("../img/mobile_app_devloper.png"),
     title: "Mobile Apps",
     texts: ["Android", "IOS", "Cross Platform"],
     text: "Mobile Apps allow users to access your web app on their phone!",
@@ -494,37 +494,37 @@ export const gridservices = [
     link: "/studentList/appDev",
   },
   {
-    img: "https://i.imgur.com/6vC3i3o.png",
+    img: require("../img/data_science.png"),
     title: "Data Science",
     texts: ["UI", "UX", "Responsive"],
     text: "Powerful Web Applications enhances user interference and productivity!",
-    icon: "fad fa-browser",
+    icon: "fad fa-analytics",
     link: "/studentList/dataScience",
   },
   {
     reverse: true,
-    img: "https://i.imgur.com/cs7dkFo.png",
+    img: require("../img/software_devloper.png"),
     title: "Software Developers",
     texts: ["UI", "UX", "Responsive"],
     text: "A Hybrid is a mix of a Web Application and a Website!",
     link: "/studentList/software",
-    icon: "fad fa-columns",
+    icon: "fad fa-laptop-code",
   },
   {
-    img: "https://i.imgur.com/cs7dkFo.png",
+    img: require("../img/cyber_security.png"),
     title: "Cyber Security",
     texts: ["UI", "UX", "Responsive"],
     text: "A Hybrid is a mix of a Web Application and a Website!",
     link: "/studentList/cyber",
-    icon: "fad fa-columns",
+    icon: "fas fa-shield-alt",
   },
   {
     reverse: true,
-    img: "https://i.imgur.com/cs7dkFo.png",
+    img: require("../img/machine_learning.png"),
     title: "Machine Learning",
     texts: ["UI", "UX", "Responsive"],
     text: "A Hybrid is a mix of a Web Application and a Website!",
     link: "/studentList/machineLearning",
-    icon: "fad fa-columns",
+    icon: "fad fa-user-robot",
   },
 ];

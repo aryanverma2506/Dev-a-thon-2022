@@ -58,21 +58,6 @@ function Contact() {
     );
   });
 
-  // const contactBoxesRow = contactBoxes?.map((box) => {
-  //   return (
-  //     <Card
-  //       className={styles}
-  //       copy={true}
-  //       card={box}
-  //       iconLink={
-  //         <a href={box.link} target={!box.notBlank && "__blank"}>
-  //           <i className={`fal fa-chevron-right ${styles["arrow-icon"]}`}></i>
-  //         </a>
-  //       }
-  //     />
-  //   );
-  // });
-
   return (
     <div className={`${styles["contact"]}`}>
       <BannerProps

@@ -6,15 +6,9 @@ import NotificationSystem from "react-notification-system";
 import Icon from "../Reuseable/Icon/Icon";
 import Navbar from "../Navbar/Navbar";
 import Home from "./Home/Home";
-import AboutMe from "./AboutMe/AboutMe";
-// import Services from "./Services/Services";
-// import Works from "./Works/Works";
 import Contact from "./Contact/Contact";
-import YouAreLost from "./404/YouAreLost";
-import Footer from "../Footer/Footer";
 import LogIn from "./LogIn/LogIn";
 import SignUp from "./SignUp/SignUp";
-// import ProjectPage from "../Reuseable/ProjectPage/ProjectPage";
 import Profile from "./Profile/Profile";
 import StudentList from "./StudentList/StudentList";
 import { links, style } from "../AppConstant";
@@ -23,9 +17,6 @@ import styles from "./Body.module.css";
 
 function Body() {
   const { scrolled, notifisystem } = useContext(ContextApp);
-  // const worksRoutes = works?.map((work) => {
-  //   return <Route path={work.link} element={<ProjectPage project={work} />} />;
-  // });
 
   return (
     <div className={`${styles["body"]}`}>
@@ -45,19 +36,18 @@ function Body() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/aboutme" element={<AboutMe />} />
-          {/* <Route path="/services" element={<Services />} /> */}
-          {/* <Route path="/works" element={<Works />} /> */}
-          {/* {worksRoutes} */}
           <Route path="/contact" element={<Contact />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/studentList" element={<StudentList />} />
+          <Route path="/profile/:id" element={<Profile />} />
+          <Route path="/studentList/webDev" element={<StudentList profile={"webDev"}/>} />
+          <Route path="/studentList/appDev" element={<StudentList profile={"appDev"} />} />
+          <Route path="/studentList/software" element={<StudentList profile={"software"} />} />
+          <Route path="/studentList/cyber" element={<StudentList profile={"cyber"} />} />
+          <Route path="/studentList/dataScience" element={<StudentList profile={"dataScience"} />} />
+          <Route path="/studentList/machineLearning" element={<StudentList profile={"machineLearning"} />} />
 
-          <Route path="*" element={<YouAreLost />} />
+          {/* <Route path="*" element={<YouAreLost />} /> */}
         </Routes>
       </AnimatePresence>
-
-      <Footer />
     </div>
   );
 }

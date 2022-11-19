@@ -2,7 +2,7 @@
 
 In the project directory, you can run:
 
-### `STEP 1 Back-End (Optional)`
+### `STEP 1 Back-End`
 
 MongoDB is required to be install in your system
 Open the backend directory in terminal and run the following commands.
@@ -11,7 +11,7 @@ Open the backend directory in terminal and run the following commands.
 
 This command will download all the dependencies.
 
-### `nodemon server`
+### `npm start or npm run dev`
 
 This will start the database server.
 

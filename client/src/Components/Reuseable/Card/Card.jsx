@@ -17,60 +17,16 @@ function Card(props) {
     themeShadow,
     iconLink,
     copy = false,
-    learnMoreBtn = false,
+    learnMoreBtn = false
   } = props;
-  const { text, icon, title, link } = props.card;
+  const { id, icon = "fas fa-id-card", name, score } = props.card;
   const { notifisystem } = useContext(ContextApp);
   const [copied, setCopied] = useState(false);
 
-  const LightTooltip = withStyles((theme) => ({
-    tooltip: {
-      backgroundColor: "#fff",
-      color: "var(--theme-color)",
-      boxShadow: "var(--light-shadow)",
-      fontSize: 11,
-    },
-    arrow: {
-      color: "#fff",
-      boxShadow: "var(--light-shadow)",
-    },
-  }))(Tooltip);
-
-  function determineCopy() {
-    const parameters = {
-      msg: "Copied to clipboard!",
-      icon: "fad fa-copy",
-      notifisystem,
-    };
-
-    if (copy) {
-      return (
-        <CopyToClipboard
-          text={text}
-          onCopy={() => {
-            setCopied(true);
-            addNotification(parameters);
-            setTimeout(() => {
-              setCopied(false);
-            }, 4000);
-          }}
-        >
-          <LightTooltip
-            TransitionComponent={Fade}
-            placement="top"
-            title={copied ? "Copied" : "Copy"}
-          >
-            <p style={{ cursor: "pointer" }}>{text}</p>
-          </LightTooltip>
-        </CopyToClipboard>
-      );
-    }
-    return <p>{text}</p>;
-  }
-
+  // console.log(id, name, webdevScore);
   return (
     <HashLink
-      to={link + "#top"}
+      to={`/profile/${id}`}
       className={`${className !== "" ? className["card"] : ""} ${
         styles["card"]
       } ${themeShadow ? styles["theme-shadow-card"] : ""}`}
@@ -78,8 +34,8 @@ function Card(props) {
     >
       <Iconbox className={className} icon={icon} />
       <div>
-        <h4>{title}</h4>
-        {determineCopy()}
+        <h4>{name}</h4>
+        <p>Score : {Math.round(score * 1000) / 1000} / 10</p>
       </div>
       {iconLink}
       {learnMoreBtn && <TextArrow className={className} text="Learn More" />}

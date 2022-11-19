@@ -34,7 +34,7 @@ function Navbar(props) {
     <div
       className={`${styles["navbar"]} ${scrolled ? styles["navscrolled"] : ""}`}
     >
-      <Logo text1="TurtleX" text2="Digital" />
+      <Logo text1="Hire" text2="Me" />
       <div className={`${styles["links"]}`}>
         {linksrow}
         <HashLink smooth to="/login#top">

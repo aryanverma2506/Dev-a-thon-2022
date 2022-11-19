@@ -34,7 +34,7 @@ function ObjectInput(props) {
             required={required}
             onChange={(event) =>
               setValue((prevValue) => {
-                return { ...prevValue, [obj]: event.target.value };
+                return { ...prevValue, [obj]: +event.target.value };
               })
             }
           />

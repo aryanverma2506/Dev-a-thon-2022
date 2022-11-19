@@ -20,7 +20,7 @@ function Slide(props) {
     >
       <div>
         <h3 data-aos={determineFade("right")}>
-          <Iconbox icon={`fad fa-${slide.icon}`} />
+          <Iconbox icon={`${slide.icon}`} />
           <span>{slide.title}</span>
         </h3>
         <p
@@ -31,7 +31,7 @@ function Slide(props) {
           <span>{slide.text}</span>
         </p>
         <div className={`${className["btns"]}`} data-aos={determineFade("up")}>
-          <TextArrow link="/aboutme" />
+          <TextArrow text="More" link={slide.link} />
         </div>
       </div>
       <div data-aos={determineFade("left")}>

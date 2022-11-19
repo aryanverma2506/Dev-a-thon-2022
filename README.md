@@ -4,8 +4,7 @@ In the project directory, you can run:
 
 ### `STEP 1 Back-End`
 
-MongoDB is required to be install in your system
-Open the backend directory in terminal and run the following commands.
+Open the server directory in terminal and run the following commands.
 
 ### `npm install`
 
@@ -16,6 +15,8 @@ This command will download all the dependencies.
 This will start the database server.
 
 ### `STEP 2 Front-End`
+
+Open the client directory in terminal and run the following commands.
 
 ### `npm config set legacy-peer-deps true`
 
@@ -38,5 +39,5 @@ You may also see any lint errors in the console.
 ## Team Members
 
 Aryan Verma\
-Abhay Pratap Singh\
-Nitigya Joshi
+Varun Bansal\
+Saket Ranjan

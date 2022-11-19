@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Donut from "../../Reuseable/ApexChart/Donut";
-// import { temp } from "../../AppConstant";
 import styles from "./Profile.module.css";
 import {useParams} from "react-router-dom"
 import axios from "axios";
@@ -9,6 +8,7 @@ function Profile(props) {
   const [current, setCurrent] = useState("profile");
   const { id } = useParams()
   const [name, setName] = useState("")
+  const [resume, setResume] = useState("")
   const [skillsData, setSkillsData] = useState({
     series: [],
     labels: []
@@ -66,6 +66,9 @@ function Profile(props) {
       labels: labels
     }
     setSkillsData(test)
+    // setResume(data.data.resume)
+    // this is a sample resume we can replace it from the above command
+    setResume("https://writing.colostate.edu/guides/documents/resume/functionalsample.pdf")
   }
 
   useEffect(() => {
@@ -174,7 +177,7 @@ function Profile(props) {
           id="resumeDiv"
           style={{ display: "none" }}
         >
-          Hello
+          <iframe src={resume} className={`${styles["iframe"]}`}/>
         </div>
       </div>
     </div>

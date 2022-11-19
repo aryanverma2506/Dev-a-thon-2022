@@ -1,13 +1,10 @@
 import React, { useContext, useState } from "react";
 import emailjs from "emailjs-com";
-
-import Card from "../../Reuseable/Card/Card";
 import ObjectInput from "../../Reuseable/Input/ObjectInput";
-import BannerProps from "../Banner/BannerProps";
 import Iconbox from "../../Reuseable/Icon/Iconbox";
 import AppButton from "../../Reuseable/Button/AppButton";
 import { ContextApp } from "../../../ContextAPI";
-import { contactBoxes, signupInputs } from "../../AppConstant";
+import { signupInputs } from "../../AppConstant";
 import { addNotification } from "../../AppFunctions";
 import styles from "./SignUp.module.css";
 
@@ -62,36 +59,12 @@ function SignUp() {
     );
   });
 
-  const contactBoxesRow = contactBoxes?.map((box) => {
-    return (
-      <Card
-        className={styles}
-        copy={true}
-        card={box}
-        iconLink={
-          <a href={box.link} target={!box.notBlank && "__blank"}>
-            <i className={`fal fa-chevron-right ${styles["arrow-icon"]}`}></i>
-          </a>
-        }
-      />
-    );
-  });
-
   return (
     <div className={`${styles["contact"]}`}>
-      {/* <BannerProps
-        img="https://i.imgur.com/fzc9vDw.png"
-        title="Contact"
-        text="Contact me to get your dream website up and ready for the rest of the world to see!"
-      /> */}
       <div className={`${styles["contact-info"]}`}>
         <div className={`${styles["contact-title"]}`} data-aos="flip-left">
           <h2>Sign Up</h2>
-          {/* <small className={`${styles["graytext"]}`}>
-            Don't hesitate to reach out to me!
-          </small> */}
         </div>
-        {/* <div className={`${styles["contact-boxes"]}`}>{contactBoxesRow}</div> */}
         <div className={`${styles["contact-form"]}`} data-aos="zoom-out">
           <div className={`${styles["left-contact"]}`}>
             <Iconbox className={styles} icon="fad fa-envelope" />

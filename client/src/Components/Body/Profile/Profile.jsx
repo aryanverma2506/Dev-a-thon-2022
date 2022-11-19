@@ -9,7 +9,10 @@ function Profile(props) {
   const [current, setCurrent] = useState("profile");
   const { id } = useParams()
   const [name, setName] = useState("")
-  const [skillsData, setSkillsData] = useState({})
+  const [skillsData, setSkillsData] = useState({
+    series: [],
+    labels: []
+  })
 
   const labels = [
     "backend",
@@ -58,18 +61,15 @@ function Profile(props) {
       temp.push(data.data[lab])
     })
 
-    console.log(temp);
     let test = {
       series: temp,
       labels: labels
     }
-    console.log(test);
     setSkillsData(test)
   }
 
   useEffect(() => {
     getData()
-    console.log(skillsData);
   }, [])
 
   return (
@@ -111,7 +111,7 @@ function Profile(props) {
                 <div className={`${styles["icon-box"]}`}>
                   <i class="fas fa-pencil-paintbrush"></i>
                 </div>
-                <span>SkillsData</span>
+                <span>Skills</span>
               </h6>
             </button>
             <button

@@ -20,6 +20,10 @@ function StudentList(props) {
     msg: "",
   });
 
+  const [backendInput, setBackendInput] = useState(33)
+  const [frontendInput, setFrontendInput] = useState(33)
+  const [databaseInput, setDataBaseInput] = useState(33)
+
   const [studentBoxes, setstudentBoxes] = useState([])
   function sendEmail(event) {
     console.log("asd");
@@ -140,6 +144,11 @@ function StudentList(props) {
       <div className={`${styles["contact-info"]}`}>
         <div className={`${styles["contact-title"]}`} data-aos="flip-left">
           <h2>Student List</h2>
+        </div>
+        <div className={`${styles["contact-boxes"]} ${styles["weightage-form"]}`} >
+          <input type={"Number"} max={100} placeholder={"Enter backend Weightage"} value={backendInput} onChange={(e) => setBackendInput(e.target.value)}/>
+          <input type={"Number"} max={100} placeholder={"Enter frontend Weightage"} value={frontendInput} onChange={(e) => setFrontendInput(e.target.value)}/>
+          <input type={"Number"} max={100} placeholder={"Enter database Weightage"} value={databaseInput} onChange={(e) => setDataBaseInput(e.target.value)}/>
         </div>
         <div className={`${styles["contact-boxes"]}`}>{studentBoxesRow}</div>
         {/* <div className={`${styles["contact-form"]}`} data-aos="zoom-out">

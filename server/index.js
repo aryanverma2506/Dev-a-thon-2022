@@ -65,6 +65,7 @@ app.post('/webDevStudents', async (req, res) => {
     const collection = await db.collection('applications').get()
     let data = collection.docs.map(doc => doc.data())
     let i = 0;
+    let resData = []
     while(data[i] != undefined) {
         let score = 0
         if(inDefaultMode) {
@@ -76,10 +77,20 @@ app.post('/webDevStudents', async (req, res) => {
             const total = backendWeight + frontendWeight + databaseWeight
             score = (backendWeight * parseFloat(data[i]['backend']) + frontendWeight * parseFloat(data[i]['frontend']) + databaseWeight * parseFloat(data[i]['database'])) / total
         }
+        let temp = {
+            name: data[i]['name'],
+            id: data[i]['id'],
+            score: score,
+            cgpa: data[i]['cgpa'],
+            problem_solving_and_aptitude: data[i]['problem_solving_and_aptitude'],
+            version_control_systems: data[i]['version_control_systems'],
+        }
+
+        resData.push(temp)
         data[i]['score'] = score
         i++;
     }
-    data.sort((a, b) => {
+    resData.sort((a, b) => {
         if(a['score'] == b['score']) {
             if(b['cgpa'] = a['cgpa']) {
                 if(b['problem_solving_and_aptitude'] = a['problem_solving_and_aptitude']) {
@@ -93,7 +104,7 @@ app.post('/webDevStudents', async (req, res) => {
         }
         return b['score'] - a['score']
     })
-    return res.status(200).send(data)
+    return res.status(200).send(resData)
 })
 
 app.post('/appDevStudents', async (req, res) => {
@@ -108,6 +119,7 @@ app.post('/appDevStudents', async (req, res) => {
     const collection = await db.collection('applications').get()
     let data = collection.docs.map(doc => doc.data())
     let i = 0;
+    let resData = []
     while(data[i] != undefined) {
         let score = 0
         if(inDefaultMode) {
@@ -119,10 +131,20 @@ app.post('/appDevStudents', async (req, res) => {
             const total = androidWeight + iosWeight + cross_platformWeight
             score = (androidWeight * parseFloat(data[i]['android']) + iosWeight * parseFloat(data[i]['ios']) + cross_platformWeight * parseFloat(data[i]['cross_platform'])) / total
         }
+        let temp = {
+            name: data[i]['name'],
+            id: data[i]['id'],
+            score: score,
+            cgpa: data[i]['cgpa'],
+            problem_solving_and_aptitude: data[i]['problem_solving_and_aptitude'],
+            version_control_systems: data[i]['version_control_systems'],
+        }
+
+        resData.push(temp)
         data[i]['score'] = score
         i++;
     }
-    data.sort((a, b) => {
+    resData.sort((a, b) => {
         if(a['score'] == b['score']) {
             if(b['cgpa'] = a['cgpa']) {
                 if(b['problem_solving_and_aptitude'] = a['problem_solving_and_aptitude']) {
@@ -136,7 +158,7 @@ app.post('/appDevStudents', async (req, res) => {
         }
         return b['score'] - a['score']
     })
-    return res.status(200).send(data)
+    return res.status(200).send(resData)
 })
 
 app.post('/dataScienceStudents', async (req, res) => {
@@ -151,6 +173,7 @@ app.post('/dataScienceStudents', async (req, res) => {
     const collection = await db.collection('applications').get()
     let data = collection.docs.map(doc => doc.data())
     let i = 0;
+    let resData = []
     while(data[i] != undefined) {
         let score = 0
         if(inDefaultMode) {
@@ -162,10 +185,20 @@ app.post('/dataScienceStudents', async (req, res) => {
             const total = pythonWeight + multivariate_calculus_linear_algebraWeight + probability_statisticsWeight
             score = (pythonWeight * parseFloat(data[i]['python']) + multivariate_calculus_linear_algebraWeight * parseFloat(data[i]['multivariate_calculus_linear_algebra']) + probability_statisticsWeight * parseFloat(data[i]['probability_statistics'])) / total
         }
+        let temp = {
+            name: data[i]['name'],
+            id: data[i]['id'],
+            score: score,
+            cgpa: data[i]['cgpa'],
+            problem_solving_and_aptitude: data[i]['problem_solving_and_aptitude'],
+            version_control_systems: data[i]['version_control_systems'],
+        }
+
+        resData.push(temp)
         data[i]['score'] = score
         i++;
     }
-    data.sort((a, b) => {
+    resData.sort((a, b) => {
         if(a['score'] == b['score']) {
             if(b['cgpa'] = a['cgpa']) {
                 if(b['problem_solving_and_aptitude'] = a['problem_solving_and_aptitude']) {
@@ -179,7 +212,7 @@ app.post('/dataScienceStudents', async (req, res) => {
         }
         return b['score'] - a['score']
     })
-    return res.status(200).send(data)
+    return res.status(200).send(resData)
 })
 
 app.post('/machineLearningStudents', async (req, res) => {
@@ -194,6 +227,7 @@ app.post('/machineLearningStudents', async (req, res) => {
     const collection = await db.collection('applications').get()
     let data = collection.docs.map(doc => doc.data())
     let i = 0;
+    let resData = []
     while(data[i] != undefined) {
         let score = 0
         if(inDefaultMode) {
@@ -206,10 +240,20 @@ app.post('/machineLearningStudents', async (req, res) => {
             const total = pythonWeight + multivariate_calculus_linear_algebraWeight + probability_statisticsWeight + ml_algorithmsWeight
             score = (pythonWeight * parseFloat(data[i]['python']) + multivariate_calculus_linear_algebraWeight * parseFloat(data[i]['multivariate_calculus_linear_algebra']) + probability_statisticsWeight * parseFloat(data[i]['probability_statistics']) + ml_algorithmsWeight * parseFloat(data[i]['ml_algorithms'])) / total
         }
+        let temp = {
+            name: data[i]['name'],
+            id: data[i]['id'],
+            score: score,
+            cgpa: data[i]['cgpa'],
+            problem_solving_and_aptitude: data[i]['problem_solving_and_aptitude'],
+            version_control_systems: data[i]['version_control_systems'],
+        }
+
+        resData.push(temp)
         data[i]['score'] = score
         i++;
     }
-    data.sort((a, b) => {
+    resData.sort((a, b) => {
         if(a['score'] == b['score']) {
             if(b['cgpa'] = a['cgpa']) {
                 if(b['problem_solving_and_aptitude'] = a['problem_solving_and_aptitude']) {
@@ -223,7 +267,7 @@ app.post('/machineLearningStudents', async (req, res) => {
         }
         return b['score'] - a['score']
     })
-    return res.status(200).send(data)
+    return res.status(200).send(resData)
 })
 
 app.post('/cyberSecurityStudents', async (req, res) => {
@@ -238,6 +282,7 @@ app.post('/cyberSecurityStudents', async (req, res) => {
     const collection = await db.collection('applications').get()
     let data = collection.docs.map(doc => doc.data())
     let i = 0;
+    let resData = []
     while(data[i] != undefined) {
         let score = 0
         if(inDefaultMode) {
@@ -248,10 +293,20 @@ app.post('/cyberSecurityStudents', async (req, res) => {
             const total = operating_systemWeight + communication_networksWeight
             score = (operating_systemWeight * parseFloat(data[i]['operating_system']) + communication_networksWeight * parseFloat(data[i]['communication_networks'])) / total
         }
+        let temp = {
+            name: data[i]['name'],
+            id: data[i]['id'],
+            score: score,
+            cgpa: data[i]['cgpa'],
+            problem_solving_and_aptitude: data[i]['problem_solving_and_aptitude'],
+            version_control_systems: data[i]['version_control_systems'],
+        }
+
+        resData.push(temp)
         data[i]['score'] = score
         i++;
     }
-    data.sort((a, b) => {
+    resData.sort((a, b) => {
         if(a['score'] == b['score']) {
             if(b['cgpa'] = a['cgpa']) {
                 if(b['problem_solving_and_aptitude'] = a['problem_solving_and_aptitude']) {
@@ -265,7 +320,7 @@ app.post('/cyberSecurityStudents', async (req, res) => {
         }
         return b['score'] - a['score']
     })
-    return res.status(200).send(data)
+    return res.status(200).send(resData)
 })
 
 app.post('/softwareDeveloperStudents', async (req, res) => {
@@ -280,6 +335,7 @@ app.post('/softwareDeveloperStudents', async (req, res) => {
     const collection = await db.collection('applications').get()
     let data = collection.docs.map(doc => doc.data())
     let i = 0;
+    let resData = []
     while(data[i] != undefined) {
         let score = 0
         if(inDefaultMode) {
@@ -291,10 +347,20 @@ app.post('/softwareDeveloperStudents', async (req, res) => {
             const total = data_structuresWeight + algorithmsWeight + problem_solving_and_aptitudeWeight
             score = (data_structuresWeight * parseFloat(data[i]['data_structures']) + algorithmsWeight * parseFloat(data[i]['algorithms']) + problem_solving_and_aptitudeWeight * parseFloat(data[i]['problem_solving_and_aptitude'])) / total
         }
+        let temp = {
+            name: data[i]['name'],
+            id: data[i]['id'],
+            score: score,
+            cgpa: data[i]['cgpa'],
+            version_control_systems: data[i]['version_control_systems'],
+            operating_system: data[i]['operating_system']
+        }
+
+        resData.push(temp)
         data[i]['score'] = score
         i++;
     }
-    data.sort((a, b) => {
+    resData.sort((a, b) => {
         if(a['score'] == b['score']) {
             if(b['cgpa'] = a['cgpa']) {
                 if(b['operating_system'] = a['operating_system']) {
@@ -308,7 +374,7 @@ app.post('/softwareDeveloperStudents', async (req, res) => {
         }
         return b['score'] - a['score']
     })
-    return res.status(200).send(data)
+    return res.status(200).send(resData)
 })
 
 app.get('/login', async (req, res) => {
